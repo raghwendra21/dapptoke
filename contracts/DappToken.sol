@@ -67,5 +67,21 @@ contract DappToken {
         return true;
     }
     //transfer from
+    function transferFrom(address _from, address _to, uint _value) public returns(bool success){
+
+         //reqire _from has enough tokens
+        require(_value <= balanceOf[_from]);
+        require(_value <= allowance[_from][msg.sender]);
+         //require allowance is big enough
+        //cahnge the balance
+        balanceOf[_from] -= _value;
+        balanceOf[_to] += _value;
+        //update the allowance
+        allowance[_from][msg.sender] -= _value;
+        //transfer event
+        Transfer(_from,_to,_value);
+        // return a boolean
+        return true;
+    }
     
 }
