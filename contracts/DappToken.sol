@@ -48,7 +48,7 @@ contract DappToken {
          //Return bool
         //Transfer event
 
-        Transfer(msg.sender, _to, _value);
+        emit Transfer(msg.sender, _to, _value);
         return true;
 
         
@@ -62,7 +62,7 @@ contract DappToken {
         // allowance
         allowance[msg.sender][_spender] = _value;
 
-        Approval(msg.sender, _spender, _value);
+        emit Approval(msg.sender, _spender, _value);
         //approve event
         return true;
     }
@@ -79,7 +79,7 @@ contract DappToken {
         //update the allowance
         allowance[_from][msg.sender] -= _value;
         //transfer event
-        Transfer(_from,_to,_value);
+        emit Transfer(_from,_to,_value);
         // return a boolean
         return true;
     }

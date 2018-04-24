@@ -8,7 +8,7 @@ contract DappTokenSale {
     DappToken public tokenContract;
     uint256 public tokenPrice;
     
-    function DappTokenSale(DappToken _tokenContract, uint256 _tokenPrice) public {
+    function DappTokenSale(DappToken _tokenContract,uint256 _tokenPrice)public {
         admin = msg.sender;
         tokenContract = _tokenContract;
         tokenPrice = _tokenPrice;
